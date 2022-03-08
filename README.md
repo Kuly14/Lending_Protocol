@@ -20,7 +20,7 @@ Here is an example in steps:
 
 #### 1. Approve The Pool.
 
-    To deposit tokens into the pool you will have to approve it first in the weth contract.
+To deposit tokens into the pool you will have to approve it first in the weth contract.
 
 #### 2. Deposit Tokens. 
 
