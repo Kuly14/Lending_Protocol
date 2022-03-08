@@ -20,13 +20,13 @@ contract LendingPoolFactory is Ownable {
 		address lastAddress = address(poolArray[index]);
 		poolAddresses[_tokenAddress] = lastAddress;
 	}
-
-  function checkIfPoolExists(address _tokenAddress) internal view returns (bool) {
-    if (poolAddresses[_tokenAddress] == address(0)) {
-      return false; // Pool doesn't exist
-    }
-    return true; // Pool exists
-  }
+	
+	function checkIfPoolExists(address _tokenAddress) internal view returns (bool) {
+    		if (poolAddresses[_tokenAddress] == address(0)) {
+      			return false; // Pool doesn't exist
+    		}
+    		return true; // Pool exists
+  	}
 
 
 
