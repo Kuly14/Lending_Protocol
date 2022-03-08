@@ -24,39 +24,39 @@ Here is an example in steps:
 
 #### 2. Deposit Tokens. 
 
-    You call the `deposit("amount you want to deposit")` function
-    This function will transfer the tokens from you to the contract and will write your balance to the database(mapping). 
-    
-    It will also mint aTokens in this case aWeth. These tokens represent how much tokens you have in the contract. 
-    
-    The balance is calculated with the exchange rate which is slowly adjusting to the upside. So if you deposit some tokens and take them out a week later.
-    If there has been some borrowing your aTokens are more valueable.
+You call the `deposit("amount you want to deposit")` function
+This function will transfer the tokens from you to the contract and will write your balance to the database(mapping). 
+
+It will also mint aTokens in this case aWeth. These tokens represent how much tokens you have in the contract. 
+
+The balance is calculated with the exchange rate which is slowly adjusting to the upside. So if you deposit some tokens and take them out a week later.
+If there has been some borrowing your aTokens are more valueable.
 
 #### 3. Borrow Tokens
 
-    In this version I wrote the contract so you can borrow only the same tokens you have deposited. This makes the app less 
-    complex and less prone to hacks since we are not using any price feeds. 
-    
-    Every loan has to be overcollateralized by at least 135%. So to borrow the tokens just call `borrow("amount you want to borrow")` function. 
-    
-    This function will calculate if you have enough tokens in the contract to deposit collateral for it. If you don't the function will revert. 
+In this version I wrote the contract so you can borrow only the same tokens you have deposited. This makes the app less 
+complex and less prone to hacks since we are not using any price feeds. 
 
-    If you have enough tokens to put down as collateral the function will send you the tokens. And take aTokens as collateral.
+Every loan has to be overcollateralized by at least 135%. So to borrow the tokens just call `borrow("amount you want to borrow")` function. 
 
-    Of course you will have to pay interest rate which is higher or lower depending on how many users are borrowing and depositing.
+This function will calculate if you have enough tokens in the contract to deposit collateral for it. If you don't the function will revert. 
 
-    You can now go and use the tokens however you want.
+If you have enough tokens to put down as collateral the function will send you the tokens. And take aTokens as collateral.
+
+Of course you will have to pay interest rate which is higher or lower depending on how many users are borrowing and depositing.
+
+You can now go and use the tokens however you want.
 
 
 #### 4. Repay The Loan. 
 
-    To repay the loan back just call `repay()` function. It will check if you have enough tokens to repay the loan. 
-    If you do it will take the tokens back and release the collateral back to you. In this case aTokens tokens.
+To repay the loan back just call `repay()` function. It will check if you have enough tokens to repay the loan. 
+If you do it will take the tokens back and release the collateral back to you. In this case aTokens tokens.
 
 #### 5. Withdrawing tokens.
 
-    To withdraw the tokens just call `withdraw("Amount you want to withdraw")` function. The contract will check if you 
-    have enough aTokens and then will take your aTokens and trade them for the token that has been in the contract.
+To withdraw the tokens just call `withdraw("Amount you want to withdraw")` function. The contract will check if you 
+have enough aTokens and then will take your aTokens and trade them for the token that has been in the contract.
 
 
 ### LendingPoolFactory.sol
